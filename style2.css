@@ -1,0 +1,117 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+body {
+    background-color: #ffffff;
+    color: #111;
+}
+
+/* Header & Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 20px 0;
+}
+
+.logo {
+    color: #820AD1;
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #767676;
+    font-weight: 500;
+}
+
+.btn-login {
+    background-color: #820AD1;
+    color: white;
+    border: none;
+    padding: 10px 25px;
+    border-radius: 25px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-login:hover {
+    background-color: #9b32e6;
+}
+
+/* Hero Section */
+.hero {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 80vh;
+    padding: 0 10%;
+    gap: 50px;
+}
+
+.hero-text h1 {
+    font-size: 3rem;
+    line-height: 1.1;
+    margin-bottom: 20px;
+}
+
+.hero-text p {
+    color: #767676;
+    font-size: 1.2rem;
+}
+
+/* O Cartão Nu */
+.nu-card {
+    width: 350px;
+    height: 220px;
+    background: linear-gradient(135deg, #820AD1 0%, #530082 100%);
+    border-radius: 15px;
+    position: relative;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+    transition: transform 0.5s;
+    cursor: pointer;
+}
+
+.nu-card:hover {
+    transform: rotateY(10deg) rotateX(10deg);
+}
+
+.card-chip {
+    width: 45px;
+    height: 35px;
+    background: #FFD700;
+    border-radius: 5px;
+    position: absolute;
+    top: 30px;
+    left: 30px;
+}
+
+.card-logo {
+    position: absolute;
+    bottom: 30px;
+    right: 30px;
+    color: white;
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.card-name {
+    position: absolute;
+    bottom: 30px;
+    left: 30px;
+    color: white;
+    font-size: 0.9rem;
+    letter-spacing: 2px;
+}

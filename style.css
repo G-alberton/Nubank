@@ -1,117 +1,79 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Inter', sans-serif;
+:root {
+    --bg-color: #f5f5f7;
+    --nu-purple: linear-gradient(135deg, #820AD1, #4E067D);
+    --nu-silver: linear-gradient(135deg, #CFD9DF, #A1B0C1);
+    --nu-black: linear-gradient(135deg, #2D2D2D, #000000);
 }
 
 body {
-    background-color: #ffffff;
-    color: #111;
-}
-
-/* Header & Navbar */
-.navbar {
+    margin: 0;
+    background-color: var(--bg-color);
+    font-family: 'Inter', sans-serif;
     display: flex;
-    justify-content: space-around;
-    align-items: center;
-    padding: 20px 0;
-}
-
-.logo {
-    color: #820AD1;
-    font-weight: bold;
-    font-size: 1.5rem;
-}
-
-.nav-links {
-    display: flex;
-    list-style: none;
-    gap: 30px;
-}
-
-.nav-links a {
-    text-decoration: none;
-    color: #767676;
-    font-weight: 500;
-}
-
-.btn-login {
-    background-color: #820AD1;
-    color: white;
-    border: none;
-    padding: 10px 25px;
-    border-radius: 25px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-.btn-login:hover {
-    background-color: #9b32e6;
-}
-
-/* Hero Section */
-.hero {
-    display: flex;
-    align-items: center;
     justify-content: center;
-    height: 80vh;
-    padding: 0 10%;
-    gap: 50px;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
 }
 
-.hero-text h1 {
-    font-size: 3rem;
-    line-height: 1.1;
-    margin-bottom: 20px;
+.container {
+    display: flex;
+    width: 80%;
+    max-width: 1100px;
+    align-items: center;
+    justify-content: space-between;
 }
 
-.hero-text p {
-    color: #767676;
-    font-size: 1.2rem;
+/* Tipografia */
+.content { width: 45%; }
+.badge { color: #820AD1; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; font-size: 0.8rem; }
+h1 { font-size: 3.5rem; margin: 10px 0; line-height: 1.1; }
+.purple-text { color: #820AD1; }
+p { color: #666; font-size: 1.1rem; margin-bottom: 30px; }
+
+/* Seletores */
+.selectors { display: flex; gap: 15px; margin-bottom: 10px; }
+.dot {
+    width: 20px; height: 20px; border-radius: 50%; border: none; cursor: pointer;
+    transition: transform 0.3s ease; border: 2px solid transparent;
+}
+.dot:nth-child(1) { background: #820AD1; }
+.dot:nth-child(2) { background: #CFD9DF; }
+.dot:nth-child(3) { background: #2D2D2D; }
+.dot.active { transform: scale(1.3); border-color: #111; }
+
+/* O Cartão com Perspectiva */
+.card-wrapper {
+    perspective: 1000px;
 }
 
-/* O Cartão Nu */
-.nu-card {
-    width: 350px;
-    height: 220px;
-    background: linear-gradient(135deg, #820AD1 0%, #530082 100%);
-    border-radius: 15px;
+.card {
+    width: 400px;
+    height: 250px;
+    background: var(--nu-purple);
+    border-radius: 20px;
+    padding: 30px;
     position: relative;
-    box-shadow: 0 20px 40px rgba(0,0,0,0.15);
-    transition: transform 0.5s;
-    cursor: pointer;
+    transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+    transform-style: preserve-3d;
+    box-shadow: 0 30px 60px rgba(0,0,0,0.1);
 }
 
-.nu-card:hover {
-    transform: rotateY(10deg) rotateX(10deg);
+.card:hover {
+    transform: rotateY(-10deg) rotateX(5deg) translateY(-10px);
 }
 
-.card-chip {
-    width: 45px;
-    height: 35px;
-    background: #FFD700;
-    border-radius: 5px;
+.chip {
+    width: 50px; height: 40px;
+    background: linear-gradient(135deg, #f0d78c, #c7a030);
+    border-radius: 8px;
+}
+
+.card-footer {
     position: absolute;
-    top: 30px;
-    left: 30px;
+    bottom: 30px; width: calc(100% - 60px);
+    display: flex; justify-content: space-between; align-items: flex-end;
 }
 
-.card-logo {
-    position: absolute;
-    bottom: 30px;
-    right: 30px;
-    color: white;
-    font-size: 2rem;
-    font-weight: bold;
-}
-
-.card-name {
-    position: absolute;
-    bottom: 30px;
-    left: 30px;
-    color: white;
-    font-size: 0.9rem;
-    letter-spacing: 2px;
-}
+.user-name { color: rgba(255,255,255,0.8); letter-spacing: 2px; font-size: 0.8rem; }
+.brand { color: white; font-size: 2.2rem; font-weight: 700; }
