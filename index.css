@@ -138,16 +138,17 @@ p {
     box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
 
-/* Remova os .dot:nth-child antigos e use estes */
-.dot.roxo { background: #820AD1; }
-.dot.prata { background: #CFD9DF; }
-.dot.preto { background: #2D2D2D; }
 
-/* Garante que o ponto ativo mostre qual está selecionado */
+.dot:nth-child(1) { background: #820AD1;}
+.dot:nth-child(2) { background: #CFD9DF; }
+.dot:nth-child(3) { background: #2D2D2D; }
+/*Adicionou o child e numerou de acordo com a ordem de qual o child é*/
+
 .dot.active {
     transform: scale(1.2);
-    border-color: #820AD1; /* Borda roxa ao redor da cor escolhida */
+    border-color: #820AD1; 
     box-shadow: 0 0 10px rgba(130, 10, 209, 0.3);
+
 }
 /* --- CARTÃO --- */
 .cartao {
