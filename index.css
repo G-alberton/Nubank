@@ -191,6 +191,16 @@ p {
         linear-gradient(0deg, transparent 48%, rgba(0,0,0,0.2) 50%, transparent 52%);
 }
 
+.chip::after {
+    content: "";
+    position: absolute;
+    top: 25%; left: 25%;
+    width: 50%; height: 50%;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+    background: rgba(255, 255, 255, 0.1);
+}
+
 .card-footer {
     position: absolute;
     bottom: 30px;
