@@ -65,7 +65,7 @@ body {
 
 .btn_login {
     background-color: #e0e0e0;
-    color: #555;
+    color: #9b9999;
     border: none;
     padding: 10px 30px;
     border-radius: 30px;
@@ -73,6 +73,8 @@ body {
     cursor: pointer;
     transition: 0.3s;
 }
+
+.btn_login:hover {background-color: #dddada;}
 
 .btn_NU {
     background-color: #820AD1;
