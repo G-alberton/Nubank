@@ -1,5 +1,13 @@
 @charset "UTF-8";
 
+:root {
+    --bg-color: #f5f5f7;
+    --nu-purple: linear-gradient(135deg, #820AD1, #4E067D);
+    --nu-silver: linear-gradient(135deg, #CFD9DF, #A1B0C1);
+    --nu-black: linear-gradient(135deg, #2D2D2D, #000000);
+    --current-card: var(--nu-purple);
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -8,62 +16,189 @@
 }
 
 body {
-    background-color: #ffffff;
+    background-color: var(--bg-color);
     color: #111;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column; 
+    overflow: hidden;
 }
 
+/* --- MENU --- */
 .menu {
     display: flex;
-    justify-content: space-around;
     align-items: center;
-    padding: 20px 0;
-    background-color: #f2f2f2;
+    padding: 20px 5%;
+    background-color: #ffffff;
+    border-bottom: 1px solid #ddd;
+    width: 100%;
 }
 
 .logo {
     color: #820AD1;
     font-weight: bold;
     font-size: 1.5rem;
+    margin-right: auto;
 }
 
 .logo_links {
     display: flex;
     list-style: none;
     gap: 30px;
+    margin-right: 40px;
 }
 
 .logo_links a {
     text-decoration: none;
     color: #767676;
     font-weight: 500;
+    font-size: 0.9rem;
+    transition: 0.3s;
+}
+
+.logo_links a:hover { color: #820AD1; }
+
+.nav_buttons {
+    display: flex;
+    gap: 15px;
 }
 
 .btn_login {
-    background-color: rgb(203, 197, 197);
-    color: #767676;
+    background-color: #e0e0e0;
+    color: #555;
     border: none;
-    padding: 10px 25px;
-    border-radius: 25px;
-    font-weight: bold;
+    padding: 10px 30px;
+    border-radius: 30px;
+    font-weight: 600;
     cursor: pointer;
-    transition: 0.3;
-}
-
-.btn_login:hover {
-    background-color: rgb(224, 219, 219);
+    transition: 0.3s;
 }
 
 .btn_NU {
     background-color: #820AD1;
     color: white;
     border: none;
-    padding: 10px 25px;
-    border-radius: 25px;
-    font-weight: bold;
+    padding: 10px 30px;
+    border-radius: 30px;
+    font-weight: 600;
     cursor: pointer;
     transition: 0.3s;
 }
 
-.btn_NU:hover {
-    background-color: #9b32e6;
+.btn_NU:hover { background-color: #9b32e6; }
+
+/* --- CONTEÚDO PRINCIPAL --- */
+.container {
+    flex: 1; 
+    display: flex;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 5%;
 }
+
+.content { width: 50%; }
+
+.badge {
+    color: #820AD1;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 0.8rem;
+}
+
+h1 {
+    font-size: 3.5rem;
+    margin: 10px 0;
+    line-height: 1.1;
+    color: #111;
+}
+
+.texto-roxo { color: #820AD1; }
+
+p {
+    color: #666;
+    font-size: 1.1rem;
+    margin-bottom: 30px;
+    max-width: 400px;
+}
+
+/* --- SELETORES --- */
+.selectors { display: flex; gap: 15px; margin-bottom: 10px; }
+
+.dot {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    border: 3px solid white;
+    cursor: pointer;
+    transition: 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+/* Remova os .dot:nth-child antigos e use estes */
+.dot.roxo { background: #820AD1; }
+.dot.prata { background: #CFD9DF; }
+.dot.preto { background: #2D2D2D; }
+
+/* Garante que o ponto ativo mostre qual está selecionado */
+.dot.active {
+    transform: scale(1.2);
+    border-color: #820AD1; /* Borda roxa ao redor da cor escolhida */
+    box-shadow: 0 0 10px rgba(130, 10, 209, 0.3);
+}
+/* --- CARTÃO --- */
+.cartao {
+    perspective: 1000px;
+}
+
+.card {
+    width: 400px;
+    height: 250px;
+    background: var(--current-card);
+    border-radius: 20px;
+    padding: 30px;
+    position: relative;
+    transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1), background 0.5s ease;
+    transform-style: preserve-3d;
+    box-shadow: 0 30px 60px rgba(0,0,0,0.15);
+    will-change: transform;
+    cursor: pointer;
+}
+
+/* CHIP E DETALHES */
+.chip {
+    width: 50px;
+    height: 38px;
+    background: linear-gradient(135deg, #f0d78c 0%, #e1b94d 45%, #f0d78c 100%);
+    border-radius: 6px;
+    position: relative;
+    overflow: hidden; 
+    box-shadow: inset 0 0 5px rgba(0,0,0,0.2);
+}
+
+.chip::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    background: 
+        linear-gradient(90deg, transparent 48%, rgba(0,0,0,0.2) 50%, transparent 52%),
+        linear-gradient(0deg, transparent 48%, rgba(0,0,0,0.2) 50%, transparent 52%);
+}
+
+.card-footer {
+    position: absolute;
+    bottom: 30px;
+    left: 30px;
+    right: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.nome { color: rgba(255,255,255,0.8); letter-spacing: 2px; font-size: 0.8rem; font-weight: 600; }
+.brand { color: white; font-size: 2.2rem; font-weight: 700; font-style: italic; }
