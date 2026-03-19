@@ -8,7 +8,7 @@ function mudacartao(type, element) {
 
     const configs = {
         'roxo': { color: 'var(--nu-purple)', name: 'Nubank Classic' },
-        'prata': { color: 'var(--nu-silver)', name: 'Nubank Platinum' },
+        'prata': { color: 'var(--nu-silver)', name: 'Nu Empresa' },
         'preto': { color: 'var(--nu-black)', name: 'Nubank Ultravioleta' }
     };
 
