@@ -1,6 +1,5 @@
 @charset "UTF-8";
 
-
 :root {
     --bg-color: #f5f5f7;
     --nu-purple: linear-gradient(135deg, #820AD1, #4E067D);
@@ -24,7 +23,6 @@ body {
     overflow-x: hidden; 
 }
 
-/* --- HEADER (Mantido fixo) --- */
 header { 
     width: 100%; 
     background: #fff; 
@@ -61,7 +59,8 @@ header {
     color: #767676; 
     font-weight: 500; 
     font-size: 0.9rem; 
-    transition: 0.3s; }
+    transition: 0.3s; 
+}
 
 .logo_links a:hover { color: #820AD1; }
 
@@ -88,20 +87,20 @@ header {
     background: #820AD1; 
     color: white; 
     transition: var(--transition-fancy);
- }
+}
 
 .btn_NU:hover { 
     transform: scale(1.05); 
     box-shadow: 0 10px 20px rgba(130, 10, 209, 0.2); 
 }
 
-
 section { 
     min-height: 100vh; 
     display: flex; 
     align-items: center; 
     justify-content: center; 
-    padding: 120px 10% 80px; }
+    padding: 120px 10% 80px; 
+}
 
 .container { 
     display: flex; 
@@ -111,7 +110,6 @@ section {
     justify-content: space-between; 
     gap: 50px; 
 }
-
 
 .hero-section .content { max-width: 500px; }
 
@@ -228,6 +226,7 @@ p {
     background: linear-gradient(135deg, rgba(255,255,255,0.1), transparent);
     z-index: 2;
 }
+
 .card-footer { 
     position: absolute; 
     bottom: 35px; 
@@ -251,7 +250,6 @@ p {
     font-weight: bold; 
     font-style: italic; 
 }
-
 
 .scroll-section { 
     background: #fff; 
@@ -313,3 +311,71 @@ p {
     transform: rotate(-8deg); 
     z-index: 2; 
 }
+
+.app-section {
+    background-color: #f5f5f7;
+    padding: 80px 10%;
+}
+
+.app-container h1 {
+    font-size: 2.8rem;
+    margin-bottom: 40px;
+    max-width: 500px;
+}
+
+.expandable-grid {
+    display: flex;
+    gap: 15px;
+    height: 550px;
+    margin-bottom: 30px;
+    width: 100%;
+}
+
+.app-card {
+    flex: 1;
+    border-radius: 24px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100%;
+    position: relative;
+    cursor: pointer;
+    transition: flex 0.8s cubic-bezier(0.23, 1, 0.32, 1), filter 0.3s;
+    filter: brightness(0.8);
+    display: block;
+    background-color: #f0f0f0; 
+    image-rendering: -webkit-optimize-contrast;
+}
+
+.app-card:hover, .app-card.active {
+    flex: 3;
+    filter: brightness(1);
+}
+
+.glass-label{
+    position: absolute;
+    bottom: 30px;
+    left: 30px;
+    background: rgba(255,255,255,0.95);
+    padding: 12px 20px;
+    border-radius: 12px;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: 0.5s ease;
+}
+
+.app-card:hover .glass-label, .app-card.active .glass-label{
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.glass-label span { display: block; font-size: 0.75rem; color: #666;}
+.glass-label strong{ display: block; font-size: 0.9rem; color: #111;}
+
+.app-description-box{
+    height: 80px;
+    transition: opacity 0.3s ease;
+}
+
+#app-text { font-size: 1.2rem; font-weight: 500; margin-bottom: 8px; color: #333;}
+.nu-link{ color: #820AD1; text-decoration: none; font-weight: 700; font-size: 0.9rem;}
