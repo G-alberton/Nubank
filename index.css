@@ -493,3 +493,150 @@ p {
     color: #820AD1;
     font-weight: 700;
 }
+
+/* =========================
+   MOBILE (até 768px) - CORRIGIDO
+========================= */
+@media (max-width: 768px) {
+
+    /* ===== HEADER ===== */
+    .menu {
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .logo_links {
+        display: none;
+    }
+
+    .nav_buttons {
+        width: 100%;
+        justify-content: center;
+    }
+
+    /* ===== GERAL ===== */
+    section {
+        padding: 120px 5% 60px;
+    }
+
+    h1 {
+        font-size: 2rem;
+        line-height: 1.2;
+    }
+
+    p {
+        font-size: 1rem;
+        margin-bottom: 25px;
+    }
+
+    .container {
+        flex-direction: column;
+        gap: 30px;
+        text-align: center;
+    }
+
+    /* ===== HERO SECTION ===== */
+    .hero-section {
+        background-attachment: scroll;
+    }
+
+    .hero-section .content {
+        max-width: 100%;
+    }
+
+    .selectors {
+        justify-content: center;
+    }
+
+    .cartao-interativo {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+    }
+
+    .card {
+        width: 100%;
+        max-width: 320px;
+        height: 200px;
+        padding: 20px;
+    }
+
+    .brand {
+        font-size: 2rem;
+    }
+
+    .card-footer {
+        bottom: 20px;
+        left: 20px;
+        right: 20px;
+    }
+
+    .parallax-wrapper {
+        display: none;
+    }
+
+    /* ===== APP SECTION (AQUI FOI O FIX PRINCIPAL) ===== */
+    .app-section {
+        padding: 60px 5%;
+    }
+
+    .app-container h1 {
+        font-size: 2rem;
+        text-align: center;
+    }
+
+    .expandable-grid {
+        flex-direction: column;
+        height: auto;
+        gap: 15px;
+    }
+
+    .app-card {
+        height: 220px;
+        flex: none;
+        border-radius: 18px;
+
+        /* 🔥 ESSENCIAL PRA NÃO SUMIR IMAGEM */
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+
+        /* mantém efeito visual */
+        filter: brightness(0.9);
+    }
+
+    /* remove bug de expansão quebrando layout */
+    .app-card:hover,
+    .app-card.active {
+        flex: none;
+        filter: brightness(1);
+    }
+
+    /* label sempre visível no mobile */
+    .glass-label {
+        opacity: 1;
+        transform: translateY(0);
+        bottom: 15px;
+        left: 15px;
+        padding: 10px 15px;
+    }
+
+    .app-description-box {
+        height: auto;
+        text-align: center;
+    }
+
+    #app-text {
+        font-size: 1rem;
+    }
+
+    /* ===== FOOTER ===== */
+    .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .footer {
+        padding: 60px 5% 30px;
+    }
+}
