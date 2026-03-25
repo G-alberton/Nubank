@@ -43,10 +43,22 @@ header {
 }
 
 .logo { 
+    text-decoration: none;
+    display: inline-block;
     color: #820AD1; 
     font-weight: bold; 
-    font-size: 1.6rem; 
+    font-size: 1.6rem;
     margin-right: auto; 
+}
+
+.logo a {
+    text-decoration: none; /* Garante que o link dentro da div não tenha sublinhado */
+    color: inherit;        /* Faz o link herdar a cor roxa da classe .logo */
+}
+
+/* Opcional: mantém a cor roxa mesmo após clicar (visitado) */
+.logo a:visited {
+    color: #820AD1;
 }
 
 .logo_links { 
