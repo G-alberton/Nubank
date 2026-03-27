@@ -1,0 +1,455 @@
+@charset "UTF-8";
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+body {
+    background-color: #f5f5f7;
+    overflow-x: hidden;
+}
+
+.split-screen {
+    display: flex;
+    width: 100%;
+    height: 100vh;
+    padding-top: 80px;
+}
+
+.left-side {
+    flex: 1.2;
+    display: flex;
+    align-items: center;
+    padding-left: 10%;
+}
+
+h1 {
+    font-size: 4rem;
+    line-height: 1.1;
+    font-weight: 700;
+    color: #111;
+}
+
+.texto-roxo {
+    color: #820AD1;
+}
+
+.description {
+    font-size: 1.2rem;
+    color: #555;
+    margin-top: 20px;
+    max-width: 480px;
+}
+
+.right-side {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.scene-3d {
+    position: relative;
+    width: 320px;
+    height: 380px;
+    perspective: 1200px;
+}
+
+.nu-shield-main {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    cursor: pointer;
+    border-radius: 0 0 50% 50%;
+    overflow: hidden;
+    background: linear-gradient(145deg, #9b3ff0 0%, #820AD1 50%, #4e067d 100%);
+    transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+    box-shadow: 
+        inset 0 10px 20px rgba(255, 255, 255, 0.3), 
+        inset 0 -15px 30px rgba(0, 0, 0, 0.4),      
+        0 20px 40px rgba(130, 10, 209, 0.2);       
+}
+
+.nu-shield-main svg {
+    width: 100%;
+    height: 100%;
+    fill: #820AD1;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+.full-glint {
+    position: absolute;
+    top: -150%;
+    left: -150%;
+    width: 400%;
+    height: 400%;
+    background: linear-gradient(
+        135deg, 
+        rgba(255,255,255,0) 0%, 
+        rgba(255,255,255,0) 45%, 
+        rgba(255,255,255,0.1) 48%, 
+        rgba(255,255,255,0.8) 50%, 
+        rgba(255,255,255,0.1) 52%, 
+        rgba(255,255,255,0) 55%, 
+        rgba(255,255,255,0) 100%
+    );
+    opacity: 0;
+    z-index: 2;
+    transition: all 0.9s cubic-bezier(0.19, 1, 0.22, 1);
+    pointer-events: none;
+}
+
+.nu-shield-main::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.8), transparent);
+    z-index: 3;
+    opacity: 0.5;
+}
+
+.nu-shield-main:hover {
+    transform: translateZ(50px) rotateX(8deg) rotateY(-8deg);
+    box-shadow: 
+        inset 0 10px 20px rgba(255, 255, 255, 0.4),
+        inset 0 -15px 30px rgba(0, 0, 0, 0.5),
+        0 40px 60px rgba(130, 10, 209, 0.3);
+}
+
+.nu-shield-main:hover .full-glint {
+    opacity: 1;
+    transform: translate(45%, 45%); 
+}
+
+.shield-shadow {
+    position: absolute;
+    bottom: -50px;
+    left: 10%;
+    width: 80%;
+    height: 40px;
+    background: radial-gradient(ellipse at center, rgba(130, 10, 209, 0.5) 0%, rgba(130, 10, 209, 0) 70%);
+    filter: blur(20px);
+    z-index: -1;
+    transition: all 0.6s ease;
+}
+
+.scene-3d:hover .shield-shadow {
+    transform: scale(1.2) translateY(15px);
+    opacity: 0.8;
+}
+
+.nu-shield-main.active {
+    animation: shieldClick 0.6s ease-out;
+}
+
+@keyframes shieldClick {
+    0% { transform: scale(1); filter: brightness(1); }
+    50% { transform: scale(0.95); filter: brightness(1.5); }
+    100% { transform: scale(1); filter: brightness(1); }
+}
+
+.safety-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 30px;
+    padding: 80px 10%; 
+    background-color: #f5f5f7;
+}
+
+.safety-card {
+    background-color: #ffffff;
+    padding: 40px;
+    border-radius: 24px;
+    transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+    cursor: pointer;
+    border: 1px solid rgba(0, 0, 0, 0.03); 
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    position: relative;
+    overflow: hidden;
+}
+
+.safety-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+    border-color: rgba(130, 10, 209, 0.2); 
+}
+
+.safety-card .icon {
+    font-size: 32px;
+    background-color: #f1f1f1;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 16px;
+    transition: all 0.3s ease;
+}
+
+.safety-card:hover .icon {
+    background-color: #820AD1;
+    color: white; 
+    transform: scale(1.1);
+}
+
+.safety-card h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #111;
+    letter-spacing: -0.5px;
+}
+
+.safety-card p {
+    font-size: 1.05rem;
+    color: #555;
+    line-height: 1.5;
+}
+
+.safety-card::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 4px;
+    background-color: #820AD1;
+    transition: width 0.4s ease;
+}
+
+.safety-card:hover::before {
+    width: 100%;
+}
+
+@media (max-width: 992px) {
+    .safety-grid {
+        grid-template-columns: repeat(2, 1fr); 
+    }
+}
+
+@media (max-width: 600px) {
+    .safety-grid {
+        grid-template-columns: 1fr; 
+        padding: 40px 5%;
+    }
+}
+
+.icon-container {
+    width: 56px;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f0f0f5; 
+    border-radius: 14px;
+    margin-bottom: 10px;
+    transition: all 0.4s ease;
+    color: #820AD1; 
+}
+
+.nu-icon {
+    width: 28px;
+    height: 28px;
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.safety-card:hover .icon-container {
+    background-color: #820AD1;
+    color: #ffffff; 
+    box-shadow: 0 8px 16px rgba(130, 10, 209, 0.2);
+}
+
+.safety-card:hover .nu-icon {
+    transform: scale(1.1) rotate(-5deg); 
+}
+
+.safety-card h3 {
+    margin-top: 5px;
+    font-size: 1.4rem;
+    color: #111;
+}
+
+.safety-card p {
+    color: #666;
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+.item-icon {
+    width: 45px;
+    height: 45px;
+    background-color: #f2e5ff; 
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.item-icon svg {
+    transition: transform 0.3s ease;
+}
+
+.control-item:hover .item-icon svg {
+    transform: scale(1.1);
+}
+
+.status-text {
+    transition: color 0.3s ease;
+}
+
+.status-off {
+    color: #999 !important;
+}
+
+.control-panel-section {
+    background-color: #ffffff;
+    padding: 100px 5%;
+    text-align: center;
+    font-family: 'Inter', sans-serif;
+}
+
+.control-overline {
+    color: #820AD1;
+    font-weight: 700;
+    font-size: 0.9rem;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+}
+
+.control-title {
+    font-size: 3rem;
+    font-weight: 700;
+    color: #111;
+}
+
+.control-title span {
+    color: #820AD1;
+}
+
+.control-subtitle {
+    color: #666;
+    margin-top: 15px;
+    font-size: 1.2rem;
+}
+
+.safety-device {
+    max-width: 600px;
+    margin: 60px auto 0;
+    background: #fff;
+    border-radius: 40px;
+    box-shadow: 0 30px 60px rgba(0,0,0,0.1);
+    overflow: hidden;
+    border: 1px solid #f0f0f0;
+}
+
+.device-header {
+    background-color: #820AD1;
+    color: white;
+    padding: 25px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    font-weight: 600;
+    font-size: 1.2rem;
+}
+
+.device-content {
+    padding: 20px;
+}
+
+.control-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    border-radius: 20px;
+    transition: background 0.3s;
+}
+
+.control-item:hover {
+    background-color: #f9f9f9;
+}
+
+.item-info {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    text-align: left;
+}
+
+.item-icon {
+    width: 45px;
+    height: 45px;
+    background-color: #f2e5ff;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem;
+}
+
+.item-info h4 {
+    margin: 0;
+    font-size: 1.1rem;
+    color: #111;
+}
+
+.status-text {
+    margin: 0;
+    font-size: 0.9rem;
+    color: #820AD1;
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 28px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-color: #ccc;
+    transition: .4s;
+    border-radius: 34px;
+
+
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 20px;
+    width: 20px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+}
+
+input:checked + .slider {
+    background-color: #820AD1;
+}
+
+input:checked + .slider:before {
+    transform: translateX(22px);
+}
