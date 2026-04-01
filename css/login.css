@@ -1,39 +1,29 @@
-/* =========================================
-   RESET E CONFIGURAÇÕES GERAIS
-   ========================================= */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    -webkit-font-smoothing: antialiased; /* Melhor renderização de fonte */
+    -webkit-font-smoothing: antialiased; 
 }
 
 body {
     font-family: 'Inter', sans-serif;
-    overflow: hidden; /* Evita scroll na tela principal */
+    overflow: hidden; 
 }
 
-/* =========================================
-   LAYOUT SPLIT-SCREEN
-   ========================================= */
 .login-split-screen {
     display: grid;
-    grid-template-columns: 45% 55%; /* Divisão precisa conforme o print */
+    grid-template-columns: 45% 55%; 
     height: 100vh;
 }
 
-/* =========================================
-   LADO ESQUERDO: FORMULÁRIO (PRETO)
-   ========================================= */
 .left-side {
     background-color: #000000;
     color: #ffffff;
     display: flex;
     flex-direction: column;
-    padding: 40px 10%; /* Respiro lateral */
+    padding: 40px 10%; 
 }
 
-/* Header Minimalista (Voltar) */
 .header-minimal {
     display: flex;
     align-items: center;
@@ -49,7 +39,6 @@ body {
     opacity: 1;
 }
 
-/* Wrapper do Formulário (Centralizado) */
 .form-wrapper {
     flex: 1;
     display: flex;
@@ -60,13 +49,12 @@ body {
 }
 
 .login-title {
-    font-size: 3.5rem; /* Fonte grande e impactante */
+    font-size: 3.5rem; 
     font-weight: 700;
     margin-bottom: 50px;
     letter-spacing: -2px;
 }
 
-/* Estilo do Input Nubank */
 .nubank-form .input-group {
     margin-bottom: 40px;
 }
@@ -81,7 +69,7 @@ body {
 
 .input-container {
     position: relative;
-    border-bottom: 2px solid rgba(255, 255, 255, 0.1); /* Linha sutil */
+    border-bottom: 2px solid rgba(255, 255, 255, 0.1); 
     transition: border-color 0.3s;
 }
 
@@ -100,10 +88,9 @@ body {
     outline: none;
 }
 
-/* Linha ativa ao focar */
 .input-container input:focus + .help-icon,
 .input-container:focus-within {
-    border-color: #820AD1; /* Roxo elétrico Nubank */
+    border-color: #820AD1; 
 }
 
 .help-icon {
@@ -116,11 +103,10 @@ body {
     cursor: help;
 }
 
-/* Botão Primário (Acessar) */
 .btn-primary {
     width: 100%;
     height: 55px;
-    background-color: rgba(130, 10, 209, 0.2); /* Roxo opaco initially */
+    background-color: rgba(130, 10, 209, 0.2); 
     color: rgba(255, 255, 255, 0.4);
     border: none;
     border-radius: 14px;
@@ -130,9 +116,8 @@ body {
     transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
 }
 
-/* Estado Ativo do Botão */
 .btn-primary.active {
-    background-color: #820AD1; /* Roxo Nubank vibrante */
+    background-color: #820AD1; 
     color: #ffffff;
     cursor: pointer;
     box-shadow: 0 10px 25px rgba(130, 10, 209, 0.3);
@@ -143,7 +128,6 @@ body {
     box-shadow: 0 15px 35px rgba(130, 10, 209, 0.4);
 }
 
-/* Texto de Cadastro */
 .signup-text {
     margin-top: 50px;
     text-align: center;
@@ -152,7 +136,7 @@ body {
 }
 
 .link-signup {
-    color: #9226d9; /* Roxo para link */
+    color: #9226d9; 
     text-decoration: none;
     font-weight: 600;
     transition: color 0.3s;
@@ -162,11 +146,8 @@ body {
     color: #ae5ff1;
 }
 
-/* =========================================
-   LADO DIREITO: VISUAL (ROXO)
-   ========================================= */
 .right-side {
-    background-color: #4C067D; /* Roxo Nubank profundo conforme o print */
+    background-color: #4C067D; 
     display: flex;
     align-items: center;
     justify-content: center;
@@ -180,10 +161,9 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    perspective: 1500px; /* Ativa a profundidade 3D na seção */
+    perspective: 1500px; 
 }
 
-/* Container do elemento flutuante */
 .floating-cards-container {
     position: relative;
     display: flex;
@@ -191,41 +171,33 @@ body {
     align-items: center;
 }
 
-/* A IMAGEM DOS CARTÕES (com efeitos) */
 .floating-cards {
     width: 100%;
-    max-width: 550px; /* Ajuste preciso conforme o print */
+    max-width: 550px; 
     height: auto;
     
-    /* ANIMAÇÃO 3D PRINCIPAL */
+    
     animation: cardsFloatPro 6s infinite ease-in-out;
     
-    /* Efeito de profundidade inicial */
+
     transform: rotateX(5deg) rotateY(-10deg); 
     
-    /* Melhor renderização */
+    
     -webkit-user-drag: none;
-    pointer-events: none; /* Imagem não atrapalha o hover */
+    pointer-events: none; 
 }
 
-/* Sombra suave abaixo dos cartões (pulsante) */
 .cards-shadow {
     width: 300px;
     height: 25px;
     background: rgba(0, 0, 0, 0.3);
     border-radius: 50%;
     filter: blur(15px);
-    margin-top: -30px; /* Sobrepõe levemente */
+    margin-top: -30px; 
     
-    /* ANIMAÇÃO DE SOMBRA */
     animation: shadowPulsePro 6s infinite ease-in-out;
 }
 
-/* =========================================
-   ANIMAÇÕES PROFISSIONAIS (HIGH-END)
-   ========================================= */
-
-/* Flutuação Complexa (RA/RV feel) */
 @keyframes cardsFloatPro {
     0%, 100% {
         transform: translateZ(20px) translateY(0) rotateX(5deg) rotateY(-10deg);
@@ -237,19 +209,17 @@ body {
     }
 }
 
-/* Sombra pulsante em harmonia com os cartões */
 @keyframes shadowPulsePro {
     0%, 100% {
         transform: scale(1);
         opacity: 0.4;
     }
     50% {
-        transform: scale(0.7); /* Sombra diminui quando cartões sobem */
+        transform: scale(0.7); 
         opacity: 0.2;
     }
 }
 
-/* Container que dá a perspectiva 3D */
 .cards-container-3d {
     position: relative;
     width: 400px;
@@ -260,24 +230,22 @@ body {
     justify-content: center;
 }
 
-/* Base dos Cartões */
 .nu-card {
     position: absolute;
     width: 260px;
     height: 400px;
-    background: linear-gradient(135deg, #d1d1d1 0%, #a8a8a8 100%); /* Cinza Metálico */
+    background: linear-gradient(135deg, #d1d1d1 0%, #a8a8a8 100%); 
     border-radius: 18px;
     padding: 30px;
     box-shadow: 0 20px 40px rgba(0,0,0,0.3);
     transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
-    color: #4C067D; /* Texto roxo escuro no cartão cinza */
+    color: #4C067D; 
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     overflow: hidden;
 }
 
-/* Detalhes do Cartão (Logo, Chip, Nome) */
 .card-logo { font-size: 2rem; font-weight: 800; }
 .card-brand { font-weight: 600; text-transform: lowercase; align-self: flex-end; opacity: 0.8; }
 .card-holder { font-size: 0.9rem; font-weight: 500; margin-top: auto; }
@@ -291,7 +259,6 @@ body {
     position: relative;
 }
 
-/* Posicionamento dos dois cartões */
 .card-back {
     transform: rotate(-15deg) translateX(-40px) translateZ(-50px);
     z-index: 1;
@@ -302,15 +269,11 @@ body {
     z-index: 2;
 }
 
-/* --- EFEITO DE BRILHO (GLOW) AO PASSAR O MOUSE --- */
-
-/* Brilho de fundo (Outer Glow) */
 .cards-container-3d:hover .nu-card {
-    box-shadow: 0 0 30px 5px rgba(130, 10, 209, 0.4); /* Brilho Roxo ao redor */
+    box-shadow: 0 0 30px 5px rgba(130, 10, 209, 0.4); 
     border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
-/* Movimento de separação ao hover */
 .cards-container-3d:hover .card-back {
     transform: rotate(-25deg) translateX(-80px) translateY(-20px);
 }
@@ -319,7 +282,6 @@ body {
     transform: rotate(5deg) translateX(50px) translateY(10px);
 }
 
-/* Efeito de Reflexo de Luz (Inner Shine) */
 .card-shine {
     position: absolute;
     top: 0;
@@ -339,11 +301,10 @@ body {
     left: 100%;
 }
 
-/* Estilização detalhada do Chip */
 .card-chip {
     width: 50px;
     height: 38px;
-    background: linear-gradient(135deg, #bf953f, #fcf6ba, #b38728, #fbf5b7, #aa771c); /* Gradiente dourado/metálico */
+    background: linear-gradient(135deg, #bf953f, #fcf6ba, #b38728, #fbf5b7, #aa771c); 
     border-radius: 8px;
     margin-top: 20px;
     position: relative;
@@ -351,7 +312,6 @@ body {
     overflow: hidden;
 }
 
-/* Linhas internas do chip para realismo */
 .card-chip::before {
     content: '';
     position: absolute;
@@ -359,7 +319,7 @@ body {
     background-image: 
         linear-gradient(to right, rgba(0,0,0,0.2) 1px, transparent 1px),
         linear-gradient(to bottom, rgba(0,0,0,0.2) 1px, transparent 1px);
-    background-size: 33% 50%; /* Cria o desenho dos contatos */
+    background-size: 33% 50%; 
 }
 
 .card-chip::after {
@@ -372,12 +332,9 @@ body {
     border-radius: 4px;
 }
 
-/* =========================================
-   RESPONSIVIDADE (MOBILE-FRIENDLY)
-   ========================================= */
 @media (max-width: 992px) {
     .login-split-screen {
-        grid-template-columns: 1fr; /* 1 coluna em mobile */
+        grid-template-columns: 1fr; 
         height: auto;
     }
     
@@ -388,7 +345,7 @@ body {
     }
     
     .right-side {
-        display: none; /* Esconde a parte visual em mobile para foco no form */
+        display: none; 
     }
     
     .login-title {
