@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Nu Empresa</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/login.css">
+</head>
+<body>
+    
+    <main class="login-split-screen">
+        <div class="left-side">
+            <div class="header-minimal">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M15 18l-6-6 6-6"></path></svg>
+                <span>Voltar</span>
+            </div>
+
+            <div class="form-wrapper">
+                <h1 class="login-title">Login Nu Empresa</h1>
+
+                <form id="loginForm" class="nubank-form">
+                    <div class="input-group">
+                        <label for="cpf">Informe seu CPF</label>
+                        <div class="input-container">
+                            <input type="text" id="cpf" placeholder="000.000.000-00" maxlength="14" autocomplete="off">
+                            <span class="help-icon">?</span>
+                        </div>
+                    </div>
+
+                    <div class="button-group">
+                        <button type="submit" class="btn-primary" id="btnSubmit" disabled>Acessar</button>
+                    </div>
+                </form>
+
+                <p class="signup-text">
+                    Ainda não tem uma conta do Nu Empresa? <a href="#" class="link-signup">Abrir agora</a>
+                </p>
+            </div>
+        </div>
+
+        <div class="right-side">
+            <div class="visual-wrapper">
+                <div class="cards-container-3d">
+                    <div class="nu-card card-back">
+                        <div class="card-logo">nu</div>
+                        <div class="card-chip"></div>
+                        <div class="card-holder">Loja da Fê</div>
+                        <div class="card-brand">business</div>
+                    </div>
+
+                    <div class="nu-card card-front">
+                        <div class="card-logo">nu</div>
+                        <div class="card-chip"></div>
+                        <div class="card-holder">Loja da Fê</div>
+                        <div class="card-brand">business</div>
+                        <div class="card-shine"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="js/login.js"></script>
+</body>
+</html>
