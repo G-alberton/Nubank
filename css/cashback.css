@@ -1,0 +1,390 @@
+:root {
+    --nu-purple-dark: #190039;
+    --nu-purple-card: #26055a;
+    --nu-text-white: #ffffff;
+    --nu-text-gray: #e5e5e5;
+    --nu-bg-light: #f5f5f7; /* Um cinza quase branco, típico da Apple/Nubank */
+    --nu-purple-deep: #190039; /* O roxo escuro do Ultravioleta */
+    --nu-purple-main: #820ad1; /* Roxo clássico para estados de hover */
+}
+
+body {
+    background-color: var(--nu-purple-dark);
+    font-family: 'Inter', sans-serif;
+    color: var(--nu-text-white);
+}
+
+header { 
+    width: 100%; 
+    background: rgba(255, 255, 255, 0.8); 
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    position: fixed; 
+    top: 0; 
+    z-index: 1000; 
+    border-bottom: 1px solid rgba(238, 238, 238, 0.5); 
+}
+
+.menu { 
+    display: flex; 
+    align-items: center; 
+    padding: 15px 5%; 
+    max-width: 1400px; 
+    margin: 0 auto; 
+}
+
+.logo { 
+    text-decoration: none;
+    display: inline-block;
+    color: #820AD1; 
+    font-weight: bold; 
+    font-size: 1.6rem;
+    margin-right: auto; 
+}
+
+.logo a {
+    text-decoration: none; /* Garante que o link dentro da div não tenha sublinhado */
+    color: inherit;        /* Faz o link herdar a cor roxa da classe .logo */
+}
+
+/* Opcional: mantém a cor roxa mesmo após clicar (visitado) */
+.logo a:visited {
+    color: #820AD1;
+}
+
+.logo_links { 
+    display: flex; 
+    list-style: none; 
+    gap: 25px; 
+    margin-right: 40px; 
+}
+
+.logo_links a { 
+    text-decoration: none; 
+    color: #767676; 
+    font-weight: 500; 
+    font-size: 0.9rem; 
+    transition: 0.3s; 
+}
+
+.logo_links a:hover { color: #820AD1; }
+
+.nav_buttons { 
+    display: flex; 
+    gap: 15px; 
+}
+
+.btn_login, .btn_NU { 
+    padding: 10px 25px; 
+    border-radius: 25px; 
+    border: none; 
+    font-weight: 600; 
+    cursor: pointer; 
+    white-space: nowrap; 
+}
+
+.btn_login { 
+    background: #e0e0e0; 
+    color: #555; 
+}
+
+.btn_NU { 
+    background: #820AD1; 
+    color: white; 
+    transition: var(--transition-fancy);
+}
+
+.btn_NU:hover { 
+    transform: scale(1.05); 
+    box-shadow: 0 10px 20px rgba(130, 10, 209, 0.2); 
+}
+
+:root {
+    --nu-purple-dark: #190039;
+    --nu-purple-card: #26055a;
+    --nu-text-white: #ffffff;
+    --nu-text-gray: #e5e5e5;
+}
+
+body {
+    background-color: var(--nu-purple-dark);
+    font-family: 'Inter', sans-serif;
+    color: var(--nu-text-white);
+}
+
+.rewards-section {
+    padding: 80px 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.container {
+    max-width: 1100px;
+    width: 100%;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 60px;
+    font-weight: 600;
+}
+
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.reward-card {
+    background-color: var(--nu-purple-card);
+    padding: 40px;
+    border-radius: 8px;
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease;
+    cursor: pointer;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.reward-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+.icon-box {
+    font-size: 32px;
+    margin-bottom: 24px;
+    color: var(--nu-text-white);
+}
+
+.reward-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 16px;
+    line-height: 1.2;
+}
+
+.reward-card p {
+    color: var(--nu-text-gray);
+    line-height: 1.6;
+    font-size: 1rem;
+}
+
+/* Animações de entrada */
+[data-anime] {
+    /*opacity: 0;*/
+    transition: .6s;
+}
+
+[data-anime="left"] { transform: translate3d(-50px, 0, 0); }
+[data-anime="right"] { transform: translate3d(50px, 0, 0); }
+[data-anime="bottom"] { transform: translate3d(0, 50px, 0); }
+
+[data-anime].animate {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+}
+
+.iof-section {
+    background-color: var(--nu-bg-light);
+    padding: 100px 20px;
+    overflow: hidden;
+}
+
+.iof-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 60px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+/* Coluna de Texto */
+.iof-content {
+    flex: 1;
+    max-width: 500px;
+}
+
+.iof-title {
+    color: var(--nu-purple-deep);
+    font-size: 3rem;
+    font-weight: 600;
+    line-height: 1.1;
+    margin-bottom: 24px;
+    letter-spacing: -0.03em;
+}
+
+.iof-description {
+    color: var(--nu-purple-deep);
+    font-size: 1.2rem;
+    line-height: 1.5;
+    margin-bottom: 40px;
+    opacity: 0.9;
+}
+
+/* Botão Estilo Nubank */
+.btn-iof {
+    display: inline-block;
+    background-color: var(--nu-purple-deep);
+    color: white;
+    padding: 16px 32px;
+    border-radius: 100px; /* Botão totalmente arredondado */
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.btn-iof:hover {
+    background-color: #2a005e;
+    transform: scale(1.02);
+}
+
+/* Coluna da Imagem */
+.iof-image-wrapper {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.iof-img {
+    width: 100%;
+    max-width: 550px;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 0px; /* O print original parece não ter border-radius na foto, mas você pode usar 16px se quiser algo mais moderno */
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+    filter: saturate(0.9) brightness(1.05);
+}
+
+@media (max-width: 968px) {
+    .iof-container {
+        flex-direction: column-reverse;
+        text-align: center;
+        gap: 40px;
+    }
+    
+    .iof-title {
+        font-size: 2.2rem;
+    }
+    
+    .iof-content {
+        max-width: 100%;
+    }
+}
+
+/* Seção Nu Viagens */
+.travel-section {
+    background-color: #190039; /* Roxo escuro Ultravioleta */
+    padding: 100px 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.travel-container {
+    display: flex;
+    align-items: center;
+    gap: 80px;
+    max-width: 1100px;
+    width: 100%;
+}
+
+.travel-content {
+    flex: 1;
+}
+
+.travel-title {
+    font-size: 3rem;
+    color: #ffffff;
+    font-weight: 600;
+    line-height: 1.1;
+    margin-bottom: 24px;
+    letter-spacing: -0.02em;
+}
+
+.travel-description {
+    font-size: 1.1rem;
+    color: #e5e5e5;
+    line-height: 1.6;
+    margin-bottom: 40px;
+    max-width: 450px;
+}
+
+/* Botão Estilo Nu Viagens (Mais arredondado e roxo médio) */
+.btn-travel {
+    display: inline-block;
+    background-color: #6d32ad; /* Tom de roxo médio do print */
+    color: #ffffff;
+    padding: 14px 28px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: background 0.3s ease;
+}
+
+.btn-travel:hover {
+    background-color: #820ad1;
+}
+
+/* Imagem */
+.travel-image {
+    flex: 1;
+}
+
+.travel-image img {
+    width: 100%;
+    max-width: 550px;
+    height: auto;
+    border-radius: 4px; /* O print tem cantos quase retos, bem sutis */
+    box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+}
+
+/* Footer Simples */
+.nu-footer {
+    background-color: #190039;
+    padding: 40px 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1100px;
+    margin: 0 auto;
+    color: #999;
+    font-size: 0.85rem;
+}
+
+.footer-logo {
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 1.2rem;
+}
+
+.footer-links a {
+    color: #999;
+    text-decoration: none;
+    margin-left: 20px;
+}
+
+.footer-links a:hover {
+    color: #ffffff;
+}
+
+/* Responsivo */
+@media (max-width: 968px) {
+    .travel-container {
+        flex-direction: column;
+        text-align: center;
+        gap: 50px;
+    }
+    .travel-description {
+        margin: 0 auto 40px;
+    }
+    .footer-content {
+        flex-direction: column;
+        gap: 20px;
+    }
+}
